@@ -1,0 +1,23 @@
+20
+/home/ubuntu/.local/lib/python3.5/site-packages/swagger_spec_validator/validator20.py:53: SwaggerValidationWarning: Found "$ref: #/definitions/UserPreferences" with siblings that will be overwritten. See https://stackoverflow.com/a/48114924 for more information. (path #/definitions/User/properties/preferences)
+  ref_dict['$ref'], '/'.join(path),
+2019-09-21 15:20:00+00:00
+0
+{'price_open': 10018.0, 'price_low': 10017.5, 'time_period_end': '2019-09-21 23:20:00', 'volume': 2545153, 'price_close': 10023.5, 'price_high': 10027.5}
+INSERT INTO ohlcv_5m(pred_time, price_open, price_high, price_low, price_close, volume) VALUES (STR_TO_DATE('2019-09-21 23:20:00',' %Y-%m-%d %H:%i:%s'),10018.00, 10027.50, 10017.50, 10023.50, 2545153.00);
+1
+{'price_open': 10023.5, 'price_low': 10023.5, 'time_period_end': '2019-09-21 23:25:00', 'volume': 29885, 'price_close': 10024.0, 'price_high': 10024.0}
+25
+2019-09-21 15:25:00+00:00
+0
+{'price_open': 10023.5, 'price_low': 10021.0, 'time_period_end': '2019-09-21 23:25:00', 'volume': 1560439, 'price_close': 10021.0, 'price_high': 10024.0}
+INSERT INTO ohlcv_5m(pred_time, price_open, price_high, price_low, price_close, volume) VALUES (STR_TO_DATE('2019-09-21 23:25:00',' %Y-%m-%d %H:%i:%s'),10023.50, 10024.00, 10021.00, 10021.00, 1560439.00);
+1
+{'price_open': 10021.0, 'price_low': 10021.0, 'time_period_end': '2019-09-21 23:30:00', 'volume': 19241, 'price_close': 10021.5, 'price_high': 10021.5}
+30
+2019-09-21 15:30:00+00:00
+0
+{'price_open': 10021.0, 'price_low': 10021.0, 'time_period_end': '2019-09-21 23:30:00', 'volume': 1916364, 'price_close': 10024.5, 'price_high': 10025.0}
+INSERT INTO ohlcv_5m(pred_time, price_open, price_high, price_low, price_close, volume) VALUES (STR_TO_DATE('2019-09-21 23:30:00',' %Y-%m-%d %H:%i:%s'),10021.00, 10025.00, 10021.00, 10024.50, 1916364.00);
+1
+{'price_open': 10024.5, 'price_low': 10024.5, 'time_period_end': '2019-09-21 23:35:00', 'volume': 164020, 'price_close': 10025.5, 'price_high': 10026.0}
