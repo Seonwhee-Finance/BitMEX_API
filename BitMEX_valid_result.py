@@ -12,7 +12,7 @@ def Telegram_Alert(msg):
     my_token = ''
     bot = telegram.Bot(token=my_token)
     bot.sendMessage(chat_id='', text="[New-DB Manager] %s" % (msg))
-    
+
 
 
 
