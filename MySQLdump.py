@@ -57,7 +57,7 @@ class MySQLDump:
 
 def To_S3_storage(fileToUpload):
     s3 = boto3.client('s3')
-    s3.upload_file(fileToUpload, 'sagemaker-neuralbc', fileToUpload.split('/')[-1])
+    s3.upload_file(fileToUpload, '', fileToUpload.split('/')[-1])
 
 def main():
     parser = argparse.ArgumentParser(description='Dump all mysql databases')

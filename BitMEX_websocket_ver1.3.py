@@ -14,11 +14,11 @@ def show_as_Seoul_time(SGT):
 
 def Telegram_Alert(msg):
 
-    my_token = '708568812:AAHhjTI3Q1prIpu2wqWMFWCZrNfbOqfhGm0'
+    my_token = ''
     bot = telegram.Bot(token=my_token)
 
-    bot.sendMessage(chat_id='@monitoring_db', text="[BitMEX WebSocket] %s" % (msg) )
-    #bot.sendMessage(chat_id=-284042811, text="[BitMEX WebSocket] %s" % (msg))  # -263380334
+    bot.sendMessage(chat_id='', text="[BitMEX WebSocket] %s" % (msg) )
+
 
 def export_to_MySQL(TradeList):
     Singapore = timezone('Asia/Singapore')
@@ -34,13 +34,10 @@ def export_to_MySQL(TradeList):
         Query = "INSERT INTO realtime_tick(trd_timestamp, price, side, trd_size, tick_direction, gross_value, foreign_national, home_national, trd_match_id) VALUES (\'%s\',%.2f, \'%s\', %.2f, \'%s\', %.2f, %d, %.7f, \'%s\');" % (
         SGT, individual_rec['price'], individual_rec['side'], individual_rec['size'], individual_rec['tickDirection'], individual_rec['grossValue'],
         individual_rec['foreignNotional'], individual_rec['homeNotional'], individual_rec['trdMatchID'])
-        #print(Query)
 
-        # conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin', password='neuralbc', db='bitmex_price', charset='utf8',
-        #                        unix_socket="/var/run/mysqld/mysqld.sock")
 
-        conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin',
-                               password='neuralbc', db='bitmex_price', charset='utf8')
+        conn = pymysql.connect(host='', user='',
+                               password='', db='bitmex_price', charset='utf8')
 
         try:
             curs = conn.cursor()
@@ -66,16 +63,11 @@ def export_to_MySQL(TradeList):
 def run():
 
     # Instantiating the WS will make it connect. Be sure to add your api_key/api_secret.
-    # kYVN884obahueeuREGfLVMu3
-    #w1meIvijkZo2kPJ_PzF3XVLK8BXvjRRQtsGs99pxDd2lP - _u
 
-    #ws = BitMEXWebsocket(endpoint="https://www.bitmex.com/api/v1", symbol="XBTUSD", api_key='E4kVNTKLi5QTBz7Nzet68f46', api_secret='cCMnrHgCZ87LwnXnqbzNaM6ZuZFqBuEplolZUCB8ywZJ3nbZ')
-    ws = BitMEXWebsocket(endpoint="https://www.bitmex.com/api/v1", symbol="XBTUSD", api_key='kYVN884obahueeuREGfLVMu3',
-                         api_secret='w1meIvijkZo2kPJ_PzF3XVLK8BXvjRRQtsGs99pxDd2lP-_u')
-    # ws = BitMEXWebsocket(endpoint="https://www.bitmex.com/api/v1", symbol="XBTUSD", api_key='DeWLuTeSjH7hV9entkPlievG',
-    #                      api_secret='DUm0Ucmhd6MLMSYHPe8WhCzYhZzfnQtjIlr4Fj6zZijZwqX9')
-    #ws = BitMEXWebsocket(endpoint="https://www.bitmex.com/api/v1", symbol="XBTUSD", api_key='', api_secret='')
 
+
+    ws = BitMEXWebsocket(endpoint="https://www.bitmex.com/api/v1", symbol="XBTUSD", api_key='',
+                         api_secret='')
     # Run forever
 
     while(True):

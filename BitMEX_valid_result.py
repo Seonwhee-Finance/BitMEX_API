@@ -9,10 +9,10 @@ import requests, telegram
 
 def Telegram_Alert(msg):
 
-    my_token = '708568812:AAHhjTI3Q1prIpu2wqWMFWCZrNfbOqfhGm0'
+    my_token = ''
     bot = telegram.Bot(token=my_token)
-    bot.sendMessage(chat_id='@neuralbc_signalTest', text="[New-DB Manager] %s" % (msg))
-    bot.sendMessage(chat_id=-325656420, text="[BitMEX Bot] %s" % (msg))
+    bot.sendMessage(chat_id='', text="[New-DB Manager] %s" % (msg))
+    
 
 
 
@@ -20,8 +20,8 @@ def Telegram_Alert(msg):
 def Comparison_two_prices(TimeStamp, TimeBetween):
     Query1 = "SELECT price_close FROM ohlcv_5m WHERE pred_time=\'%s\';" %(TimeStamp)
     Query2 = "SELECT price_close FROM ohlcv_5m WHERE pred_time=\'%s\';" % (TimeStamp + timedelta(minutes=TimeBetween))
-    conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin',
-                           password='neuralbc', db='bitmex_price', charset='utf8')
+    conn = pymysql.connect(host='', user='',
+                           password='', db='', charset='utf8')
 
     try:
         curs = conn.cursor()
@@ -41,8 +41,8 @@ def Get_basic_information(inbetween, timeStamp):
 
     init, fin = Comparison_two_prices(timeStamp, inbetween)
 
-    conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin',
-                           password='neuralbc', db='bitmex_price', charset='utf8')
+    conn = pymysql.connect(host='', user='admin',
+                           password='', db='', charset='utf8')
 
     Query1 = "SELECT model_name, pred, steady_percent FROM model_output_%dmin WHERE pred_time=\'%s\';" %(inbetween, timeStamp)
 
@@ -111,8 +111,8 @@ def Get_basic_information(inbetween, timeStamp):
 def Search_Latest_Timepoint(inbetween):
 
     Query1 = "SELECT pred_time FROM model_validation_%dmin ORDER BY pred_time DESC LIMIT 1;" %(inbetween)
-    conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin',
-                           password='neuralbc', db='bitmex_price', charset='utf8')
+    conn = pymysql.connect(host='', user='',
+                           password='', db='bitmex_price', charset='utf8')
 
     try:
         curs = conn.cursor()

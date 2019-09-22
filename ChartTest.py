@@ -19,9 +19,9 @@ def HaHa():
 
     Query = "SELECT test_stat_10min_0_1.pred_time, test_stat_10min_0_1.pred FROM rawData_10min INNER JOIN test_stat_10min_0_1 ON test_stat_10min_0_1.pred_time=rawData_10min.pred_time AND (test_stat_10min_0_1.pred=2 OR test_stat_10min_0_1.pred=0) AND (test_stat_10min_0_1.pred_time>='%s');" % (
         date_from)
-    conn = pymysql.connect(host='localhost', user='root', password='neuralbc', db='trading', charset='utf8')
+    conn = pymysql.connect(host='localhost', user='root', password='', db='', charset='utf8')
 
-    client = MongoClient(host='localhost', port=27017, username="neuralbc-ai", password="neuralbc-ai")
+    client = MongoClient(host='localhost', port=27017, username="", password="")
     DB = client['BITMEX']
     collection = DB['BTC/USD_5MIN']
     try:

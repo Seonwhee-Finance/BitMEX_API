@@ -11,9 +11,9 @@ import requests
 
 def Telegram_Alert(msg):
 
-    my_token = '708568812:AAHhjTI3Q1prIpu2wqWMFWCZrNfbOqfhGm0'
+    my_token = ''
     bot = telegram.Bot(token=my_token)
-    bot.sendMessage(chat_id='@neuralbc_signalTest', text="[BitMEX Data Manager] %s" % (msg))
+    bot.sendMessage(chat_id='', text="[BitMEX Data Manager] %s" % (msg))
     #bot.sendMessage(chat_id=-302610962, text="[BitMEX Data Manager] %s" % (msg))
 
 def from_UTC_to_SGT(UTC_time):
@@ -30,8 +30,8 @@ def from_SGT_to_UTC(SGTTime):
 
 def checkLatestDateTime():
     Query = "SELECT pred_time FROM ohlcv_5m ORDER BY pred_time DESC LIMIT 1;"
-    conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin',
-                           password='neuralbc', db='bitmex_price', charset='utf8')
+    conn = pymysql.connect(host='', user='',
+                           password='', db='', charset='utf8')
 
     try:
         curs = conn.cursor()
@@ -92,8 +92,8 @@ def export_to_MySQL(ToDB):
     Query = "INSERT INTO ohlcv_5m(pred_time, price_open, price_high, price_low, price_close, volume) VALUES (STR_TO_DATE(\'%s\',\' %s\'),%.2f, %.2f, %.2f, %.2f, %.2f);" % (
     ToDB['time_period_end'], "%Y-%m-%d %H:%i:%s", ToDB['price_open'], ToDB['price_high'], ToDB['price_low'],
     ToDB['price_close'], ToDB['volume'])
-    conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin',
-                           password='neuralbc', db='bitmex_price', charset='utf8')
+    conn = pymysql.connect(host='', user='',
+                           password='', db='', charset='utf8')
 
     try:
         curs = conn.cursor()

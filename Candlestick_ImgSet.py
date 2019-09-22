@@ -13,7 +13,7 @@ from matplotlib.finance import candlestick2_ohlc, volume_overlay
 from time import monotonic, sleep
 
 
-rds_host  = "neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com"
+rds_host  = ""
 name = rds_config.db_username
 password = rds_config.db_password
 db_name = rds_config.db_name
@@ -180,7 +180,7 @@ def To_S3_storage(fileToUpload):
     savetime = now.strftime("%Y-%m-%d_%H_%M_%S")
     s3 = boto3.client('s3')
 
-    s3.upload_file(fileToUpload, 'team-ai-lambda', '%s_OHLC.png'%savetime)
+    s3.upload_file(fileToUpload, '', '%s_OHLC.png'%savetime)
 
 
 def main():

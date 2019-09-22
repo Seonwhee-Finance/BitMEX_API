@@ -59,8 +59,8 @@ def getting_count(StartDay, ToDay, pred_minute):
     Query_Wrong = "SELECT COUNT(correct) FROM model_validation_%dmin WHERE pred_time>=\'%s\' AND pred_time<\'%s\' AND correct=\'FALSE\';" % (
         pred_minute, StartDay, ToDay)
 
-    conn = pymysql.connect(host='neuralbc-ai-db-bitmex.cwgoprvlrqva.ap-northeast-2.rds.amazonaws.com', user='admin',
-                           password='neuralbc', db='bitmex_price', charset='utf8')
+    conn = pymysql.connect(host='', user='',
+                           password='', db='', charset='utf8')
     try:
         curs = conn.cursor()
         curs.execute(Query_Correct)
@@ -83,20 +83,18 @@ def getting_count(StartDay, ToDay, pred_minute):
 
 def Telegram_Alert(msg, predTime):
 
-    my_token = '708568812:AAHhjTI3Q1prIpu2wqWMFWCZrNfbOqfhGm0'
-    bot = telegram.Bot(token=my_token)
-    bot.sendMessage(chat_id=-325656420, text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))  # -263380334
+    my_token = ''
+    bot.sendMessage(chat_id='', text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))  # -263380334
     #bot.sendMessage(chat_id='@neuralbc_signalTest', text="[New DB Manager Bot_%smin] %s" % (str(predTime), msg))  # -263380334
     #bot.sendMessage(chat_id=-284042811, text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))  # -263380334
-    bot.sendMessage(chat_id='@trading_signal_NBC', text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))
+    bot.sendMessage(chat_id='', text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))
 
 def Telegram_Alert_English(msg, predTime):
 
-    my_token = '708568812:AAHhjTI3Q1prIpu2wqWMFWCZrNfbOqfhGm0'
+    my_token = ''
     bot = telegram.Bot(token=my_token)
-    #bot.sendMessage(chat_id=-325656420, text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))  # -263380334
-    #bot.sendMessage(chat_id=-284042811, text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))  # -263380334
-    bot.sendMessage(chat_id=-1001457846064, text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))
+
+    bot.sendMessage(chat_id='', text="[BitMEX Bot_%smin] %s" % (str(predTime), msg))
 
 
 def Weekly_task_manager():
